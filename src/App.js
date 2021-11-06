@@ -38,8 +38,6 @@ function Pricingcard() {
             {value.map((val, index) => (
               <Card value={val} />
             ))}
-
-            {/* <Card value={value} /> */}
           </div>
         </div>
       </section>
@@ -50,8 +48,16 @@ function Pricingcard() {
 
 function Card({ value, type }) {
   const { name, price, users, storage } = value;
-  if (name === "Free") var styles = { opacity: 0.5 };
-  else if (name === "Plus") var style1 = { opacity: 0.5 };
+   var classs = "fa fa-check";
+  var classs1 = "fa fa-check";
+  if (name === "Free") {
+    var styles = { opacity: 0.5 };
+    classs = "fa fa-times";
+    classs1 = "fa fa-times";
+  } else if (name === "Plus") {
+    var style1 = { opacity: 0.5 };
+    classs1 = "fa fa-times";
+  }
 
   return (
     <div className="col-lg-4 ">
@@ -65,59 +71,16 @@ function Card({ value, type }) {
         </h6>
         <hr></hr>
         <ul>
-          <li>
-            {/* <span class="fa-li"> */}
-            <i class="fa fa-check" aria-hidden="true"></i>
-            {/* </span> */}
-            {users}
-          </li>
-          <li>
-            {/* <span class="fa-li"> */}
-            <i class="fa fa-check" aria-hidden="true"></i>
-            {/* </span> */}
-            {storage} Storage
-          </li>
-          <li>
-            {/* <span class="fa-li"> */}
-            <i class="fa fa-check" aria-hidden="true"></i>
-            {/* </span> */}
-            Unlimited Public Projects
-          </li>
-          <li>
-            {/* <span class="fa-li"> */}
-            <i class="fa fa-check" aria-hidden="true"></i>
-            {/* </span> */}
-            Community Access
-          </li>
+          <li><i class="fa fa-check" aria-hidden="true"></i>{users}</li>
+          <li><i class="fa fa-check" aria-hidden="true"></i>{storage} Storage</li>
+          <li><i class="fa fa-check" aria-hidden="true"></i>Unlimited Public Projects</li>
+          <li><i class="fa fa-check" aria-hidden="true"></i>Community Access</li>
 
-          <div
-            //  class="text-muted"
-            style={styles}
-          >
-            <li>
-              {/* <span class="fa-li"> */}
-              <i class="fa fa-times" aria-hidden="true"></i>
-              {/* </span> */}
-              Unlimited Private Projects
-            </li>
-            <li>
-              {/* <span class="fa-li"> */}
-              <i class="fa fa-times" aria-hidden="true"></i>
-              {/* </span> */}
-              Dedicated Phone Support
-            </li>
-            <li>
-              {/* <span class="fa-li"> */}
-              <i class="fa fa-times" aria-hidden="true"></i>
-              {/* </span> */}
-              Free Subdomain
-            </li>
-            <li style={style1}>
-              {/* <span class="fa-li"> */}
-              <i class="fa fa-times" aria-hidden="true"></i>
-              {/* </span> */}
-              Monthly Status Reports
-            </li>
+          <div style={styles}>
+            <li><i class={classs} aria-hidden="true"></i>Unlimited Private Projects</li>
+            <li><i class={classs} aria-hidden="true"></i>Dedicated Phone Support</li>
+            <li><i class={classs} aria-hidden="true"></i>Free Subdomain</li>
+            <li style={style1}><i class={classs1} aria-hidden="true"></i>Monthly Status Reports</li>
           </div>
         </ul>
         <div class="d-grid">
